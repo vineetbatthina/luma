@@ -19,3 +19,9 @@
 1. Navigate to `http://localhost:3000/secondary`
 1. navigate to `https://example-one-test.vercel.app/done/2` in a new tab to see expected result
 1. Looking at the expected result, debug why the page is not rendering as expected.
+
+### Q3
+
+1. navigate to `https://example-one-test.vercel.app/documentation`
+1. Create a REST GET to find all pets that are in status sold
+1. create a REST POST to place a new order for a pet, (choose your own params please)
