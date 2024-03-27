@@ -53,7 +53,7 @@ export const LocationPanel = ({
       setVisitorsBelowAge(filterVisitorsBelowAge(listOfAllVisitors, ageLimit));
       setVisitorsAboveAge(filterVisitorsAboveAge(listOfAllVisitors, ageLimit));
     }
-  }, [listOfAllVisitors]);
+  });
 
   return (
     <div className="w-[600px] bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700 flex flex items-center w-full pt-8 p-8">
