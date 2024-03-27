@@ -1,19 +1,38 @@
 "use client";
-import { LocationType } from "@/app/types/secondary";
+import { LocationType, Visitor } from "@/app/types/secondary";
 import { useEffect, useState } from "react";
 import { VisitorTable } from "./VisitorTable";
 
-const filterVisitorAges = (
-  arrayToFilter: { name: string; age: number }[],
-  limit: number,
-  over: boolean
+const filterVisitorsAboveAge = (
+  arrayToFilter: Visitor[],
+  limit: number
 ): number => {
-  arrayToFilter.forEach((visitor, idx) => {
-    if (over) {
-      if (visitor.age <= limit) arrayToFilter.splice(idx, 1);
-    } else {
-      if (visitor.age > limit) arrayToFilter.splice(idx, 1);
+  const valuesUnderLimit: Visitor[] = [];
+  arrayToFilter.forEach((visitor) => {
+    if (visitor.age <= limit) {
+      valuesUnderLimit.push(visitor);
     }
+  });
+  valuesUnderLimit.forEach((visitor) => {
+    const index = arrayToFilter.findIndex((v) => v.name === visitor.name);
+    arrayToFilter.splice(index, 1);
+  });
+
+  return arrayToFilter.length;
+};
+const filterVisitorsBelowAge = (
+  arrayToFilter: Visitor[],
+  limit: number
+): number => {
+  const valuesOverLimit: Visitor[] = [];
+  arrayToFilter.forEach((visitor) => {
+    if (visitor.age > limit) {
+      valuesOverLimit.push(visitor);
+    }
+  });
+  valuesOverLimit.forEach((visitor) => {
+    const index = arrayToFilter.findIndex((v) => v.name === visitor.name);
+    arrayToFilter.splice(index, 1);
   });
 
   return arrayToFilter.length;
@@ -31,12 +50,10 @@ export const LocationPanel = ({
 
   useEffect(() => {
     if (listOfAllVisitors) {
-      setVisitorsBelowAge(
-        filterVisitorAges(listOfAllVisitors, ageLimit, false)
-      );
-      setVisitorsAboveAge(filterVisitorAges(listOfAllVisitors, ageLimit, true));
+      setVisitorsBelowAge(filterVisitorsBelowAge(listOfAllVisitors, ageLimit));
+      setVisitorsAboveAge(filterVisitorsAboveAge(listOfAllVisitors, ageLimit));
     }
-  });
+  }, [listOfAllVisitors]);
 
   return (
     <div className="w-[600px] bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700 flex flex items-center w-full pt-8 p-8">
@@ -63,7 +80,9 @@ export const LocationPanel = ({
           Visitors over {ageLimit}: {visitorsAboveAge}
         </p>
       </div>
-      <VisitorTable listOfAllVisitors={listOfAllVisitors} />
+      <div className="w-full">
+        <VisitorTable listOfAllVisitors={listOfAllVisitors} />
+      </div>
     </div>
   );
 };

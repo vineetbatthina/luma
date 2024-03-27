@@ -17,7 +17,9 @@ body {
     )
     rgb(var(--background-start-rgb));
 }
-
+p {
+  color: black;
+}
 @layer utilities {
   .text-balance {
     text-wrap: balance;
