@@ -8,6 +8,16 @@
   --background-end-rgb: 0, 0, 0;
 }
 
+p {
+  color: black;
+}
+
+@media (prefers-color-scheme: dark) {
+  p {
+    color: white;
+  }
+}
+
 body {
   color: rgb(var(--foreground-rgb));
   background: linear-gradient(
@@ -17,9 +27,7 @@ body {
     )
     rgb(var(--background-start-rgb));
 }
-p {
-  color: black;
-}
+
 @layer utilities {
   .text-balance {
     text-wrap: balance;
