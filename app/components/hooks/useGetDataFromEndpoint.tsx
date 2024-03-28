@@ -11,6 +11,11 @@ interface UseGetDataFromEndpointReturn<T> {
   error: any;
 }
 
+/**
+ * This is a custom hook to get data from an endpoint
+ * @param url - The URL of the endpoint being requested
+ * @returns - an object of data, loading and error
+ */
 export const useGetDataFromEndpoint = <T,>({
   url,
 }: UseGetDataFromEndpointProps): UseGetDataFromEndpointReturn<T> => {
