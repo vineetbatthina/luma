@@ -1,4 +1,3 @@
-export { Loader } from "./primary/Loader";
-export { PersonTile } from "./primary/PersonTile";
-export { LoadingTile } from "./primary/LoadingTile";
-export { LocationPanel } from "./secondary/LocationPanel";
+export { Loader } from "./Loader";
+export { PersonTile } from "./PersonTile";
+export { LoadingTile } from "./LoadingTile";
