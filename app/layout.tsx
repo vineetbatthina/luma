@@ -14,19 +14,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body>
-        <div className="w-full border-b-2 border-blue-500 flex gap-4 justify-between">
-          <div className="flex gap-4">
-            <Link href="/primary">
-              <button className="border-2 border-white">Example 1</button>
-            </Link>
-            <Link href="/secondary">
-              <button className="border-2 border-white">Example 2</button>
-            </Link>
-          </div>
-        </div>
-        {children}
-      </body>
+      <body>{children}</body>
     </html>
   );
 }
