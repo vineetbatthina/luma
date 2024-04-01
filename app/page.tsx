@@ -17,6 +17,7 @@ import { PeopleIds, Person } from "./types";
  */
 
 export default function Primary() {
+  //Your code here
   return (
     <div className="flex gap-4 p-2 flex-col">
       <div className="flex gap-4 p-2">
@@ -33,9 +34,7 @@ export default function Primary() {
           <PersonTile name={"name"} address="address" phone={"phone number"} />
         </div>
       </div>
-      <div className="flex gap-4 p-2 w-full flex-wrap">
-        {/*Your code here*/}
-      </div>
+      <div className="flex gap-4 p-2 w-full flex-wrap">{/*Your JSX here*/}</div>
     </div>
   );
 }
